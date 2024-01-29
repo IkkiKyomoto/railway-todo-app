@@ -124,20 +124,19 @@ export const Home = () => {
 
 // 表示するタスク
 const Tasks = (props) => {
-  const { tasks, selectListId, isDoneDisplay } = props;
-  if (tasks === null) return <></>;
+  if (props.tasks === null) return <></>;
 
-  if (isDoneDisplay == "done") {
+  if (props.isDoneDisplay == "done") {
     return (
       <ul>
-        {tasks
+        {props.tasks
           .filter((task) => {
             return task.done === true;
           })
           .map((task, key) => (
             <li key={key} className="task-item">
               <Link
-                to={`/lists/${selectListId}/tasks/${task.id}`}
+                to={`/lists/${props.selectListId}/tasks/${task.id}`}
                 className="task-item-link"
               >
                 {task.title}
@@ -152,14 +151,14 @@ const Tasks = (props) => {
 
   return (
     <ul>
-      {tasks
+      {props.tasks
         .filter((task) => {
           return task.done === false;
         })
         .map((task, key) => (
           <li key={key} className="task-item">
             <Link
-              to={`/lists/${selectListId}/tasks/${task.id}`}
+              to={`/lists/${props.selectListId}/tasks/${task.id}`}
               className="task-item-link"
             >
               {task.title}
