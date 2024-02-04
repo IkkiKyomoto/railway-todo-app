@@ -3,10 +3,10 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 import { Navigate, useNavigate, Link } from "react-router-dom";
 import { Header } from "../components/Header";
-import "../css/pages/signin.css";
 import { useDispatch, useSelector } from "react-redux";
 import { signIn } from "../authSlice";
 import { url } from "../const";
+import "./signin.scss";
 
 export const SignIn = () => {
   const auth = useSelector((state) => state.auth.isSignIn);

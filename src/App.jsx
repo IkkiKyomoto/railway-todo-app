@@ -1,4 +1,4 @@
-import "./css/App.css";
+import "./App.scss";
 import { Router } from "./routes/Router";
 import { React } from "react";
 
