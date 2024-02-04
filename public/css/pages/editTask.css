@@ -2,17 +2,15 @@
   width: 1000px;
   margin: 0 auto;
 }
-
-.edit-task-form {
+.edit-task .edit-task-form {
   color: #555555;
 }
-
-.edit-task-title, .edit-task-detail {
+.edit-task .edit-task-form .edit-task-title,
+.edit-task .edit-task-form .edit-task-detail {
   width: 300px;
   margin-bottom: 25px;
 }
-
-.delete-task-button {
+.edit-task .edit-task-form .delete-task-button {
   color: #ff3333;
   border: solid 1px #ff3333;
   width: 80px;
@@ -20,9 +18,8 @@
   margin: 25px 5px;
   border-radius: 5px;
 }
-
-.edit-task-button {
-  background-color: #242F9B;
+.edit-task .edit-task-form .edit-task-button {
+  background-color: #242f9b;
   color: #ffffff;
   width: 80px;
   height: 40px;

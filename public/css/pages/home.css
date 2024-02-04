@@ -3,48 +3,40 @@
   list-style: none;
   width: 1000px;
 }
-
-.list-header {
+.taskList .list-header {
   display: flex;
   justify-content: space-between;
 }
-
-.list-menu {
+.taskList .list-header .list-menu {
   text-align: right;
 }
-
-.list-tab {
+.taskList .list-header .list-tab {
   list-style: none;
   display: flex;
   overflow-x: auto;
 }
-
-.list-tab-item {
+.taskList .list-header .list-tab .list-tab-item {
   flex-shrink: 0;
   width: 100px;
   padding: 0 25px;
   text-overflow: normal;
   margin-right: 5px;
-  border: solid 1px #242F9B;
+  border: solid 1px #242f9b;
   justify-content: center;
   align-items: center;
 }
-
-.active {
-  background-color: #242F9B;
+.taskList .list-header .list-tab .list-tab-item .active {
+  background-color: #242f9b;
   color: #ffffff;
 }
-
-.tasks {
+.taskList .tasks {
   margin-top: 25px;
 }
-
-.tasks-header {
+.taskList .tasks .tasks-header {
   display: flex;
   justify-content: space-between;
 }
-
-.task-item {
+.taskList .tasks .task-item {
   list-style-type: none;
   height: 70px;
   width: calc(100% - 25px);
@@ -53,8 +45,7 @@
   font-size: large;
   border: solid 1px #ffffff;
 }
-
-.task-item-link {
+.taskList .tasks .task-item .task-item-link {
   display: block;
   width: 100%;
   height: 100%;
@@ -70,8 +61,7 @@
   width: 100px;
   margin: 0 0 25px auto;
 }
-
-.display-select {
+.display-select-wrapper .display-select {
   width: 100%;
 }
 
