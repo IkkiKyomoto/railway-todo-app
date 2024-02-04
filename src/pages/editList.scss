@@ -5,9 +5,16 @@
   margin: 0 auto;
   .edit-list-form {
     color: #555555;
-    .edit-list-title {
+    .edit-list-title{
       width: 300px;
       margin-bottom: 25px;
+    }
+    .edit-list-button {
+      background-color: #242f9b;
+      color: #ffffff;
+      width: 80px;
+      height: 40px;
+      border-radius: 5px;
     }
     .delete-list-button {
       color: #ff3333;
@@ -17,13 +24,30 @@
       margin: 25px 5px;
       border-radius: 5px;
     }
-    .edit-list-button {
-      background-color: #242f9b;
-      color: #ffffff;
-      width: 80px;
-      height: 40px;
-      border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .edit-list {
+    width: 100%;
+    
+    .edit-list-form {
+      width: 80%;
+      margin: 0 auto;
+      .edit-list-title,
+  .edit-list-limit,
+  .edit-list-detail {
+
+    width: 90%;
+    margin-bottom: 10%;
+  }
     }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .delete-list-button {
+    margin: 10% 10% 0 15%;
   }
 }
 

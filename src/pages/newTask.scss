@@ -8,6 +8,7 @@
   }
   .new-task-select-list,
   .new-task-title,
+  .new-task-limit,
   .new-task-detail {
     width: 300px;
     margin-bottom: 25px;
@@ -21,6 +22,34 @@
     width: 80px;
     height: 40px;
     border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .new-task {
+    width: 90%;
+    .new-task-select-list,
+    .new-task-title,
+    .new-task-limit,
+    .new-task-detail {
+      width: 95%;
+      margin-bottom: 25px;
+    }
+    
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .new-task {
+    width: 90%;
+    .new-task-select-list,
+    .new-task-title,
+    .new-task-limit,
+    .new-task-detail {
+      width: 95%;
+      margin-bottom: 25px;
+    }
+    
   }
 }
 

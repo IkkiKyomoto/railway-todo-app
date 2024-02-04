@@ -18,3 +18,14 @@
     }
   }
 }
+
+@media screen and (max-width: 959px) {
+    .new-list {
+      width: 100%;
+      .new-list-form {
+        margin: 8%;
+      .new-list-title {
+        width: 80%;
+      }}
+    }
+}

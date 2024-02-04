@@ -4,23 +4,30 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 import { url } from "../const";
 import { useNavigate, useParams } from "react-router-dom";
-import "./editList.scss";
+import "./editTask.scss";
 
 export const EditTask = () => {
   const navigate = useNavigate();
   const { listId, taskId } = useParams();
   const [cookies] = useCookies();
   const [title, setTitle] = useState("");
+  const [limit, setLimit] = useState("");
   const [detail, setDetail] = useState("");
   const [isDone, setIsDone] = useState();
   const [errorMessage, setErrorMessage] = useState("");
   const handleTitleChange = (e) => setTitle(e.target.value);
+  const handleLimitChange = (e) => setLimit(e.target.value + ":00Z");
   const handleDetailChange = (e) => setDetail(e.target.value);
   const handleIsDoneChange = (e) => setIsDone(e.target.value === "done");
+  const setLimitInputMin = () => {
+    const date = new Date();
+    return date.toISOString().substring(0, 16);
+  };
   const onUpdateTask = () => {
     console.log(isDone);
     const data = {
       title: title,
+      limit: limit,
       detail: detail,
       done: isDone,
     };
@@ -65,6 +72,7 @@ export const EditTask = () => {
       .then((res) => {
         const task = res.data;
         setTitle(task.title);
+        setLimit(task.limit);
         setDetail(task.detail);
         setIsDone(task.done);
       })
@@ -87,6 +95,16 @@ export const EditTask = () => {
             onChange={handleTitleChange}
             className="edit-task-title"
             value={title}
+          />
+          <br />
+          <label>期限</label>
+          <br />
+          <input
+            type="datetime-local"
+            onChange={handleLimitChange}
+            className="edit-task-limit"
+            min={setLimitInputMin()}
+            value={limit.substring(0, 16)}
           />
           <br />
           <label>詳細</label>

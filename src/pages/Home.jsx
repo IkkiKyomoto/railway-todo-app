@@ -124,6 +124,22 @@ export const Home = () => {
 
 // 表示するタスク
 const Tasks = (props) => {
+  const formatLimitDisplay = (limit) =>
+    "期限：" + limit.substring(0, 16).replaceAll("-", "/").replace("T", " ");
+  const secondsToFullTime = (seconds) => {
+    const days = Math.floor(seconds / (60 * 60 * 24));
+    seconds = seconds % (60 * 60 * 24);
+    const hours = Math.floor(seconds / (60 * 60));
+    seconds = seconds % (60 * 60);
+    const minutes = Math.floor(seconds / 60);
+    return days + "日" + hours + "時間" + minutes + "分";
+  };
+  const remainingDateDisplay = (limit) => {
+    const date = new Date();
+    const limitDate = new Date(limit.replace("Z", ""));
+    const remainingSeconds = Math.floor((limitDate - date) / 1000);
+    return "あと" + secondsToFullTime(remainingSeconds);
+  };
   if (props.tasks === null) return <></>;
 
   if (props.isDoneDisplay == "done") {
@@ -140,6 +156,13 @@ const Tasks = (props) => {
                 className="task-item-link"
               >
                 {task.title}
+                <br />
+                <span className="task-item-limit">
+                  {formatLimitDisplay(task.limit)}
+                </span>
+                <span className="task-item-remainingDate">
+                  {remainingDateDisplay(task.limit)}
+                </span>
                 <br />
                 {task.done ? "完了" : "未完了"}
               </Link>
@@ -162,6 +185,13 @@ const Tasks = (props) => {
               className="task-item-link"
             >
               {task.title}
+              <br />
+              <span className="task-item-limit">
+                {formatLimitDisplay(task.limit)}
+              </span>
+              <span className="task-item-remainingDate">
+                {remainingDateDisplay(task.limit)}
+              </span>
               <br />
               {task.done ? "完了" : "未完了"}
             </Link>

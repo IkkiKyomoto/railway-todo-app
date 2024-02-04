@@ -24,6 +24,16 @@
   }
 }
 
+@media screen and (max-width: 959px) {
+    
+}
+
+@media screen and (max-width: 480px) {
+  .signup {
+    width: 90%;
+  }
+}
+
 .error-message {
   color: #ff3333;
 }

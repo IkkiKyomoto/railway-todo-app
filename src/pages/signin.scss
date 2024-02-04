@@ -26,6 +26,23 @@
   }
 }
 
+@media screen and (max-width: 959px) {
+  .email-label,
+  .password-label {
+    font-size: 18px;
+  }
+  .email-input,
+    .password-input {
+      width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+  .signin {
+    width: 90%;
+  }
+}
+
 .error-message {
   color: #ff3333;
 }

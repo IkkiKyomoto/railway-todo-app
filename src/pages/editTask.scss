@@ -6,6 +6,7 @@
   .edit-task-form {
     color: #555555;
     .edit-task-title,
+    .edit-task-limit,
     .edit-task-detail {
       width: 300px;
       margin-bottom: 25px;
@@ -27,6 +28,36 @@
     }
   }
 }
+
+@media screen and (max-width: 959px) {
+    .edit-task {
+      width: 100%;
+      .edit-task-form {
+        width: 80%;
+        margin: 0 auto;
+        .edit-task-title,
+    .edit-task-limit,
+    .edit-task-detail {
+      width: 90%;
+      margin-bottom: 10%;
+    }
+    .delete-task-button {
+      margin: 10% 10% 0 15%;
+    }
+      }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .edit-task {
+      width: 100%;
+      .edit-task-form {
+        width: 80%;
+        margin: 0 auto;
+      }
+    }
+  }
+
 
 .error-message {
   color: #ff3333;
