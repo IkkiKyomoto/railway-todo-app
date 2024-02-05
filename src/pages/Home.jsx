@@ -144,13 +144,18 @@ const Tasks = (props) => {
 
   if (props.isDoneDisplay == "done") {
     return (
-      <ul>
+      <ul role="tablist">
         {props.tasks
           .filter((task) => {
             return task.done === true;
           })
           .map((task, key) => (
-            <li key={key} className="task-item">
+            <li
+              key={key}
+              className="task-item"
+              role="tab"
+              tabIndex={key == 0 ? "0" : "-1"}
+            >
               <Link
                 to={`/lists/${props.selectListId}/tasks/${task.id}`}
                 className="task-item-link"
@@ -158,10 +163,10 @@ const Tasks = (props) => {
                 {task.title}
                 <br />
                 <span className="task-item-limit">
-                  {formatLimitDisplay(task.limit)}
+                  {task.limit ? formatLimitDisplay(task.limit) : ""}
                 </span>
                 <span className="task-item-remainingDate">
-                  {remainingDateDisplay(task.limit)}
+                  {task.limit ? remainingDateDisplay(task.limit) : ""}
                 </span>
                 <br />
                 {task.done ? "完了" : "未完了"}
@@ -171,7 +176,6 @@ const Tasks = (props) => {
       </ul>
     );
   }
-
   return (
     <ul>
       {props.tasks
@@ -187,10 +191,10 @@ const Tasks = (props) => {
               {task.title}
               <br />
               <span className="task-item-limit">
-                {formatLimitDisplay(task.limit)}
+                {task.limit ? formatLimitDisplay(task.limit) : ""}
               </span>
               <span className="task-item-remainingDate">
-                {remainingDateDisplay(task.limit)}
+                {task.limit ? remainingDateDisplay(task.limit) : ""}
               </span>
               <br />
               {task.done ? "完了" : "未完了"}

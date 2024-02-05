@@ -72,7 +72,11 @@ export const EditTask = () => {
       .then((res) => {
         const task = res.data;
         setTitle(task.title);
-        setLimit(task.limit);
+        if (task.limit) {
+          setLimit(task.limit);
+        } else {
+          setLimit("");
+        }
         setDetail(task.detail);
         setIsDone(task.done);
       })
