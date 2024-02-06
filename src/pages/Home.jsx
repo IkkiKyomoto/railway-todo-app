@@ -82,7 +82,7 @@ export const Home = () => {
               </p>
             </div>
           </div>
-          <ul className="list-tab">
+          <ul className="list-tab" role="tablist">
             {lists.map((list, key) => {
               const isActive = list.id === selectListId;
               return (
@@ -90,6 +90,9 @@ export const Home = () => {
                   key={key}
                   className={`list-tab-item ${isActive ? "active" : ""}`}
                   onClick={() => handleSelectList(list.id)}
+                  role="button"
+                  onKeyDown={() => handleSelectList(list.id)}
+                  tabIndex="0"
                 >
                   {list.title}
                 </li>
@@ -138,7 +141,11 @@ const Tasks = (props) => {
     const date = new Date();
     const limitDate = new Date(limit.replace("Z", ""));
     const remainingSeconds = Math.floor((limitDate - date) / 1000);
-    return "あと" + secondsToFullTime(remainingSeconds);
+    if (remainingSeconds > 0) {
+      return "あと" + secondsToFullTime(remainingSeconds);
+    } else {
+      return "期限を過ぎています";
+    }
   };
   if (props.tasks === null) return <></>;
 
@@ -150,12 +157,7 @@ const Tasks = (props) => {
             return task.done === true;
           })
           .map((task, key) => (
-            <li
-              key={key}
-              className="task-item"
-              role="tab"
-              tabIndex={key == 0 ? "0" : "-1"}
-            >
+            <li key={key} className="task-item">
               <Link
                 to={`/lists/${props.selectListId}/tasks/${task.id}`}
                 className="task-item-link"
@@ -164,9 +166,6 @@ const Tasks = (props) => {
                 <br />
                 <span className="task-item-limit">
                   {task.limit ? formatLimitDisplay(task.limit) : ""}
-                </span>
-                <span className="task-item-remainingDate">
-                  {task.limit ? remainingDateDisplay(task.limit) : ""}
                 </span>
                 <br />
                 {task.done ? "完了" : "未完了"}
